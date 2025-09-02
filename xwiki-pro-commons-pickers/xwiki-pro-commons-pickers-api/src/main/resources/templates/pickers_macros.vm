@@ -40,6 +40,15 @@
   #suggestInput($parameters)
 #end
 
+#macro (pagePicker $parameters)
+  #pickerImport("XWikiProCommons.Pickers.PagePicker")
+  #if ("$!parameters" == "")
+    #set ($parameters = {})
+  #end
+  #set ($discard = $parameters.put('class', "$!parameters.get('class') suggest-pages"))
+  #suggestInput($parameters)
+#end
+
 #macro (wikiUserPicker $parameters)
   #pickerImport('XWikiProCommons.Pickers.WikiUserPicker')
   #if ("$!parameters" == "")
